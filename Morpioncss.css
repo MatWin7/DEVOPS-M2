@@ -1,18 +1,23 @@
+/* Style général */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f4f4f4;
     margin: 0;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    color: #fff;
 }
 
 h1 {
+    font-size: 2.5em;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Plateau de jeu */
 .game-board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
@@ -27,23 +32,62 @@ h1 {
     align-items: center;
     justify-content: center;
     font-size: 2em;
-    background-color: #fff;
-    border: 2px solid #333;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .cell:hover {
-    background-color: #e0e0e0;
+    background-color: #f0f0f0;
+    transform: scale(1.05);
 }
 
+.cell:active {
+    transform: scale(1);
+}
+
+/* Message de statut */
 .status {
     margin-top: 20px;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Bouton de réinitialisation */
 button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #e6005c;
+}
+
+button:active {
+    transform: scale(0.98);
+    background-color: #cc0052;
+}
+
+/* Style mobile */
+@media (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5em;
+    }
 }
